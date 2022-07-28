@@ -47,7 +47,7 @@ function getSongDetails(songs) {
  *  //> [ { "Berlin Tsukin": "Taiyo Ky" }, { Up: "Sebastian Kamae" }, ... ]
  */
 function getTitleAndArtist(songs) {
-  let both = songs.map(( b ) => {
+  const both = songs.map(( b ) => {
     let newObj = {}
    newObj[b.title] = b.artist
    return newObj
