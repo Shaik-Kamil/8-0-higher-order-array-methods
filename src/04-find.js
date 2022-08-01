@@ -38,6 +38,16 @@ function findFirstTitleTrack(songs) {
   return songs.find(({ album, title }) => album === title);
 }
 
+let pinkElephant = null
+
+try {
+  pinkElephant = findPinkElephantsByTimestreet([])
+  console.log(pinkElephant)
+} catch (error) {
+  console.log(error)
+}
+
+console.log('hello world')
 module.exports = {
   findPinkElephantsByTimestreet,
   findFirstSongUnderThreeMinutes,
