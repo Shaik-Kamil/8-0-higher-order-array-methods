@@ -6,6 +6,7 @@
   Keep in mind that your functions must still have and use a parameter for accepting all songs.
 */
 const exampleSongData = require("../data/songs");
+const { findPinkElephantsByTimestreet } = require("./04-find");
 // Do not change the line above.
 
 /**
@@ -38,7 +39,17 @@ function anySongIsOverFourMinutes(songs) {
  * @returns {boolean}
  */
 function anySongIsByPeanut(songs) {
+  if (songs.length === 0) {
+    throw "song is missing";
+  }
   return songs.some(({ artist }) => artist === "Peanut");
+}
+let pinkElephant = null;
+try {
+  pinkElephant = findPinkElephantsByTimestreet([]);
+  console.log(pinkElephant);
+} catch {
+  console.log(error);
 }
 
 module.exports = {
