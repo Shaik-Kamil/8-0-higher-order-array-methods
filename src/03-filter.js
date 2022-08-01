@@ -14,7 +14,23 @@ const exampleSongData = require("../data/songs");
  * @returns {Object[]} An array of objects.
  */
 function getSongsBySaib(songs) {
-  return songs.filter((s) => s.artist === "Saib");
+  if (songs.length === 0) {
+    throw "Songs array must have at least one song in it";
+  }
+  // const saibSongs = songs.filter((song) => {
+  //   if (song.artist === "Saib") {
+  //     return song;
+  //   }
+  // });
+
+  // alternative to 1
+  const saibSongs = songs.filter((song) => song.artist === "Saib");
+
+  //2nd way
+  // return songs.filter((s) => s.artist === "Saib");
+
+  //3rd way deconstructor way
+  return songs.filter(({ artist }) => artist === "Saib");
 }
 
 /**
@@ -23,7 +39,23 @@ function getSongsBySaib(songs) {
  * @returns {Object[]} An array of objects.
  */
 function getSongsOverThreeMinutes(songs) {
-  return songs.filter((a) => a.runtimeInSeconds > 180);
+  if (songs.length === 0) {
+    throw "Songs array must have at least one song in it";
+  }
+  // const threeMinSongs = songs.filter((song) => {
+  //   return song.runtimeInSeconds > 180;
+  // });
+
+  //concise version to 1st way
+  const threeMinSongs = songs.filter((a) => a.runtimeInSeconds > 180);
+  return threeMinSongs;
+
+  // return threeMinSongs;
+  // 2nd way
+  // return songs.filter((a) => a.runtimeInSeconds > 180);
+
+  //3rd way deconstructor way
+  // return songs.filter(({ runtimeInSeconds }) => runtimeInSeconds > 180);
 }
 
 /**
@@ -32,7 +64,23 @@ function getSongsOverThreeMinutes(songs) {
  * @returns {Object[]} An array of objects.
  */
 function getTitleTracks(songs) {
-  return songs.filter((b) => b.title === b.album);
+  if (songs.length === 0) {
+    throw "Songs array must have at least one song in it";
+  }
+
+  const same1 = songs.filter((song) => {
+    return song.title === song.album;
+  });
+  return same1;
+  // concise way to 1st way
+  // const same2 = songs.filter((song) => song.title === song.album);
+  // return same2;
+
+  // 2nd way
+  // return songs.filter((b) => b.title === b.album);
+
+  // 3rd way deconstructor way
+  // return songs.filter(({ title, album }) => title === album);
 }
 
 module.exports = {

@@ -15,9 +15,19 @@ const exampleSongData = require("../data/songs");
  * @returns {string[]} An array of strings, all of which are song titles.
  */
 function getSongTitles(songs) {
-  const titles = songs.map((t) => {
-    return t.title;
-  });
+  if (songs.length === 0) {
+    throw "Songs array must have at least one song in it";
+  }
+  // const titles = songs.map((t) => {
+  //   return t.title;
+  // });
+  // return titles;
+
+  // 2nd way
+  // return songs.map(({ title }) => title);
+
+  // 3rd way
+  const titles = songs.map(({ title }) => title);
   return titles;
 }
 
@@ -31,10 +41,21 @@ function getSongTitles(songs) {
  *  //> [ "Berlin Tsukin by Taiyo Ky", "Up by Sebastian Kamae", ... ]
  */
 function getSongDetails(songs) {
-  const details = songs.map((details) => {
-    return `${details.title} by ${details.artist}`;
-  });
-  return details;
+  if (songs.length === 0) {
+    throw "Songs array must have at least one song in it";
+  }
+  // const details = songs.map((details) => {
+  //   return `${details.title} by ${details.artist}`;
+  // });
+  // return details;
+
+  // 2nd way
+  // return songs.map(({ title, artist }) => {
+  //   return `${title} by ${artist}`;
+  // });
+
+  // 3rd way
+  return songs.map(({ title, artist }) => title + " by " + artist);
 }
 
 /**
@@ -47,13 +68,22 @@ function getSongDetails(songs) {
  *  //> [ { "Berlin Tsukin": "Taiyo Ky" }, { Up: "Sebastian Kamae" }, ... ]
  */
 function getTitleAndArtist(songs) {
-  const both = songs.map(( b ) => {
-    let newObj = {}
-   newObj[b.title] = b.artist
-   return newObj
-    
-  });
-  return both;
+  if (songs.length === 0) {
+    throw "Songs array must have at least one song in it";
+  }
+  // const both = songs.map((b) => {
+  //   let newObj = {};
+  //   newObj[b.title] = b.artist;
+  //   return newObj;
+  // });
+  // return both;
+
+  // 2nd way
+  // const both = songs.map((b) => ({ [b.title]: b.artist }));
+  // return both;
+
+  // 3rd way
+  // return songs.map((b) => ({ [b.title]: b.artist }));
 }
 
 console.log(getTitleAndArtist(songs));

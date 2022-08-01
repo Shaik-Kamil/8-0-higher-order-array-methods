@@ -13,9 +13,14 @@ const exampleSongData = require("../data/songs");
  * @param {Object[]} songs - An array of songs. See the song data for more.
  */
 function printAllSongTitles(songs) {
-  songs.forEach((s) => {
-    console.log(s.title);
-  });
+  if (songs.length === 0) {
+    throw "Songs must have at least one song in iit";
+  }
+  // songs.forEach((s) => {
+  //   console.log(s.title);
+  // });
+
+  songs.forEach(({ title }) => console.log(title));
 }
 
 /**
@@ -29,9 +34,13 @@ function printAllSongTitles(songs) {
  *  //> ...
  */
 function printSongDetails(songs) {
-  songs.forEach((details) => {
-    console.log(`${details.title} by ${details.artist}`);
-  })
+  if (songs.length === 0) {
+    throw "Songs must have at least one song in iit";
+  }
+  // songs.forEach((details) => {
+  //   console.log(`${details.title} by ${details.artist}`);
+  // });
+  songs.forEach(({ title, artist }) => console.log(`${title} by ${artist}`));
 }
 
 /**
@@ -39,11 +48,17 @@ function printSongDetails(songs) {
  * @param {Object[]} songs - An array of songs. See the song data for more.
  */
 function printSongTitlesOverThreeMinutes(songs) {
-
-  songs.forEach((threeMins) => {
-    if (threeMins.runtimeInSeconds > 180)
-    console.log(`${threeMins.title}`)
-  })
+  if (songs.length === 0) {
+    throw "Songs must have at least one song in iit";
+  }
+  // songs.forEach((threeMins) => {
+  //   if (threeMins.runtimeInSeconds > 180) console.log(`${threeMins.title}`);
+  // });
+  songs.forEach(({ title, runtimeInSeconds }) => {
+    if (runtimeInSeconds > 180) {
+      console.log(`${title}`); //string interpolation is not need. you can just use title and it will be okay
+    }
+  });
 }
 
 module.exports = {
