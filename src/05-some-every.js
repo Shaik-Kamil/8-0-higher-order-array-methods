@@ -14,6 +14,9 @@ const exampleSongData = require("../data/songs");
  * @returns {boolean}
  */
 function allSongsAreOverTwoMinutes(songs) {
+  if (songs.length === 0) {
+    throw "song is missing";
+  }
   return songs.every(({ runtimeInSeconds }) => runtimeInSeconds > 120);
 }
 
