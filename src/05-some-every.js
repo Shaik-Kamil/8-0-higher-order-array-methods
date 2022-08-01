@@ -23,6 +23,9 @@ function allSongsAreOverTwoMinutes(songs) {
  * @returns {boolean}
  */
 function anySongIsOverFourMinutes(songs) {
+  if (songs.length === 0) {
+    throw "song is missing";
+  }
   return songs.some(({ runtimeInSeconds }) => runtimeInSeconds > 240);
 }
 
@@ -32,7 +35,7 @@ function anySongIsOverFourMinutes(songs) {
  * @returns {boolean}
  */
 function anySongIsByPeanut(songs) {
-  return songs.some(({artist}) => artist === "Peanut");
+  return songs.some(({ artist }) => artist === "Peanut");
 }
 
 module.exports = {

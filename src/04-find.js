@@ -14,6 +14,9 @@ const exampleSongData = require("../data/songs");
  * @returns {Object} A single object.
  */
 function findPinkElephantsByTimestreet(songs) {
+  if (songs.length === 0) {
+    throw "Songs must have at least one song";
+  }
   return songs.find(({ title }) => title === "Pink Elephants");
 }
 
@@ -25,7 +28,6 @@ function findPinkElephantsByTimestreet(songs) {
 function findFirstSongUnderThreeMinutes(songs) {
   return songs.find(({ runtimeInSeconds }) => runtimeInSeconds < 180);
 }
-
 
 /**
  * Returns the first song in the list where the song title equals the song album.
