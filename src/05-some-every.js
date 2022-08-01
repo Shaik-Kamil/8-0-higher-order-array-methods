@@ -44,13 +44,26 @@ function anySongIsByPeanut(songs) {
   }
   return songs.some(({ artist }) => artist === "Peanut");
 }
-let pinkElephant = null;
-try {
-  pinkElephant = findPinkElephantsByTimestreet([]);
-  console.log(pinkElephant);
-} catch {
-  console.log(error);
+let pinkElephant = null
+
+function findPinkElephantsByTimestreet(songs) {
+  if(songs.length === 0){
+    throw "There are NO songs"
+  }
+
+  return songs.find( ({ title }) => title === "Pink Elephants")
+
 }
+
+try {
+  pinkElephant = findPinkElephantsByTimestreet([])
+  console.log(pinkElephant)
+} catch (error) {
+  console.log(error)
+}
+
+
+console.log('hello world')
 
 module.exports = {
   allSongsAreOverTwoMinutes,
